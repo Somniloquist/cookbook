@@ -3,7 +3,7 @@
 <% @recipes.each do |recipe| %>
   <div class="recipe-card">
     <ul>
-      <%= image_tag("https://spoonacular.com/recipeImages/#{recipe['id']}-90x90.jpg") %>
+      <%= image_for(recipe["id"], :thumbnail) %>
       <li><strong>title </strong><%= recipe["title"] %></li>
       <li><strong>readyInMinutes </strong><%= recipe["readyInMinutes"] %></li>
       <li><strong>servings </strong><%= recipe["servings"] %></li>

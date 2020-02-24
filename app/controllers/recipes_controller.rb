@@ -2,7 +2,7 @@ class RecipesController < ApplicationController
   include RecipesHelper
 
   def index
-    response = Faraday.get BASE_URL + params[:search] + "&apiKey=#{spoonacular_key}"
+    response = Faraday.get BASE_URL + "recipes/search?query=" + params[:search] + "&apiKey=#{spoonacular_key}"
     @recipes = get_recipe_list(response)
   end
 
