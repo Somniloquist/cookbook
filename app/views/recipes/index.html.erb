@@ -1,13 +1,17 @@
 <h1>Recipes#index</h1>
 
-<% @recipes.each do |recipe| %>
-  <div class="recipe-card">
-    <ul>
-      <%= image_for(recipe["id"], :thumbnail) %>
-      <li><strong>title </strong><%= recipe["title"] %></li>
-      <li><strong>readyInMinutes </strong><%= recipe["readyInMinutes"] %></li>
-      <li><strong>servings </strong><%= recipe["servings"] %></li>
-    </ul>
-    <%= link_to "view recipe", recipe_path(recipe["id"]) %>
-  </div>
+<% unless @recipes.empty? %>
+  <% @recipes.each do |recipe| %>
+    <div class="recipe-card">
+      <ul>
+        <div><%= image_for(recipe["id"], :thumbnail) %></div>
+        <li><strong>title </strong><%= recipe["title"] %></li>
+        <li><strong>readyInMinutes </strong><%= recipe["readyInMinutes"] %></li>
+        <li><strong>servings </strong><%= recipe["servings"] %></li>
+      </ul>
+      <%= link_to "view recipe", recipe_path(recipe["id"]) %>
+    </div>
+  <% end %>
+<% else %>
+  <p>Sorry, there were no recipe results for “<%= @search %>”</p>
 <% end %>
