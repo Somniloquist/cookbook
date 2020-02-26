@@ -1,6 +1,7 @@
 module RecipesHelper
   # spoonacular api base url
   BASE_URL = "https://api.spoonacular.com/recipes/search?query="
+  RECIPE_INFORMATION_URL = "https://api.spoonacular.com/recipes/477032/information?includeNutrition=false"
 
   # Image sizes that are available via the spoonacular api
   IMAGE_SIZES = {
@@ -18,4 +19,15 @@ module RecipesHelper
   def image_for(id, size=:source)
     image_tag "https://spoonacular.com/recipeImages/#{id}-#{IMAGE_SIZES[size]}"
   end
+
+  def recipe_info_for(id)
+    response = Faraday.get("https://api.spoonacular.com/recipes/#{id}/information?includeNutrition=false&apiKey=#{spoonacular_key}")
+    JSON.parse response.body
+  end
+
+  #private
+  def spoonacular_key
+    Rails.application.credentials.spoonacular[:api_key]
+  end
+ 
 end

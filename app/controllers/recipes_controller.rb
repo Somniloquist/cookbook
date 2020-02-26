@@ -8,6 +8,7 @@ class RecipesController < ApplicationController
   end
 
   def show
+    @recipe = recipe_info_for(params[:id])
   end
 
   private
@@ -15,9 +16,5 @@ class RecipesController < ApplicationController
     def get_recipe_list(json)
       recipes = JSON.parse json.body
       recipes["results"]
-    end
-
-    def spoonacular_key
-      Rails.application.credentials.spoonacular[:api_key]
     end
 end
