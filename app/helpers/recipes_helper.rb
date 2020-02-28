@@ -1,7 +1,8 @@
 module RecipesHelper
   # spoonacular api base url
-  BASE_URL = "https://api.spoonacular.com/recipes/search?query="
-  RECIPE_INFORMATION_URL = "https://api.spoonacular.com/recipes/477032/information?includeNutrition=false"
+  BASE_URL = "https://api.spoonacular.com"
+  RECIPE_SEARCH_URL = "#{BASE_URL}/recipes/search?query="
+  RECIPE_INFORMATION_URL = "#{BASE_URL}/recipes/477032/information?includeNutrition=false"
 
   # Image sizes that are available via the spoonacular api
   IMAGE_SIZES = {
@@ -20,6 +21,11 @@ module RecipesHelper
     image_tag "https://spoonacular.com/recipeImages/#{id}-#{IMAGE_SIZES[size]}"
   end
 
+  def recipe_search_results_for(search)
+    Faraday.get "#{RECIPE_SEARCH_URL}#{search}&apiKey=#{spoonacular_key}"
+  end
+
+  # retrieve recipe info as json
   def recipe_info_for(id)
     response = Faraday.get("https://api.spoonacular.com/recipes/#{id}/information?includeNutrition=false&apiKey=#{spoonacular_key}")
     JSON.parse response.body
