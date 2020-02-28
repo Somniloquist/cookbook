@@ -23,11 +23,13 @@
   </section>
 
   <section>
-    <h2>Instructions</h2>
-    <ol>
+    <% unless @recipe["analyzedInstructions"].empty? %>
+      <h2>Instructions</h2>
+      <ol>
       <% @recipe["analyzedInstructions"].first["steps"].each do |step| %>
         <li><%= step["step"] %></li>
       <% end %>
-    <ol>
+      <ol>
+    <% end %>
   </section>
 </article>
