@@ -1,0 +1,65 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  vegetarian: false
+  vegan: false
+  glutenFree: false
+  dairyFree: false
+  veryHealthly: false
+  cheap: false
+  veryPopular: 
+  sourceUrl: MyString
+  spoonacularSourceUrl: MyString
+  aggregateLikes: 
+  spoonacularScore: 
+  healthScore: 
+  creditsText: MyString
+  license: MyString
+  sourceName: MyString
+  pricePerServing: 9.99
+  extendedIngredients: MyString
+  spoonacularId: 
+  title: MyString
+  readyInMinutes: 
+  servings: 
+  image: MyString
+  imageType: MyString
+  cuisines: MyString
+  dishTypes: MyString
+  diets: MyString
+  occasions: MyString
+  winePairing: MyString
+  instructions: MyString
+  analyzedInstructions: MyString
+
+two:
+  vegetarian: false
+  vegan: false
+  glutenFree: false
+  dairyFree: false
+  veryHealthly: false
+  cheap: false
+  veryPopular: 
+  sourceUrl: MyString
+  spoonacularSourceUrl: MyString
+  aggregateLikes: 
+  spoonacularScore: 
+  healthScore: 
+  creditsText: MyString
+  license: MyString
+  sourceName: MyString
+  pricePerServing: 9.99
+  extendedIngredients: MyString
+  spoonacularId: 
+  title: MyString
+  readyInMinutes: 
+  servings: 
+  image: MyString
+  imageType: MyString
+  cuisines: MyString
+  dishTypes: MyString
+  diets: MyString
+  occasions: MyString
+  winePairing: MyString
+  instructions: MyString
+  analyzedInstructions: MyString
