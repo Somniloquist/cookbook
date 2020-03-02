@@ -25,13 +25,13 @@ module RecipesHelper
     Faraday.get "#{RECIPE_SEARCH_URL}#{search}&apiKey=#{spoonacular_key}"
   end
 
-  # retrieve recipe info as json
+  # retrieve recipe, returns faraday response object parsed as json
   def recipe_info_for(id)
     response = Faraday.get("https://api.spoonacular.com/recipes/#{id}/information?includeNutrition=false&apiKey=#{spoonacular_key}")
     JSON.parse response.body
   end
 
-  #private
+  private
   def spoonacular_key
     Rails.application.credentials.spoonacular[:api_key]
   end

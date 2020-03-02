@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2020_02_28_220825) do
     t.boolean "vegan"
     t.boolean "glutenFree"
     t.boolean "dairyFree"
-    t.boolean "veryHealthly"
+    t.boolean "veryHealthy"
     t.boolean "cheap"
     t.boolean "sustainable"
     t.boolean "veryPopular"
@@ -33,7 +33,6 @@ ActiveRecord::Schema.define(version: 2020_02_28_220825) do
     t.string "license"
     t.string "sourceName"
     t.decimal "pricePerServing"
-    t.string "extendedIngredients"
     t.integer "spoonacularId"
     t.string "title"
     t.integer "readyInMinutes"
@@ -46,10 +45,17 @@ ActiveRecord::Schema.define(version: 2020_02_28_220825) do
     t.string "occasions"
     t.string "winePairing"
     t.string "instructions"
-    t.string "analyzedInstructions"
+    t.integer "weightWatcherSmartPoints"
+    t.string "gaps"
+    t.boolean "lowFodmap"
+    t.integer "preparationMinutes"
+    t.integer "cookingMinutes"
+    t.string "summary"
+    t.json "analyzedInstructions", default: {}
+    t.json "extendedIngredients", default: {}
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["spoonacularId"], name: "index_recipes_on_spoonacularId", unique: true
+    t.index ["id"], name: "index_recipes_on_id"
   end
 
 end

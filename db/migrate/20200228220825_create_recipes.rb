@@ -5,7 +5,7 @@ class CreateRecipes < ActiveRecord::Migration[5.2]
       t.boolean :vegan
       t.boolean :glutenFree
       t.boolean :dairyFree
-      t.boolean :veryHealthly
+      t.boolean :veryHealthy
       t.boolean :cheap
       t.boolean :sustainable 
       t.boolean :veryPopular
@@ -18,7 +18,6 @@ class CreateRecipes < ActiveRecord::Migration[5.2]
       t.string :license
       t.string :sourceName
       t.decimal :pricePerServing
-      t.string :extendedIngredients
       t.integer :spoonacularId
       t.string :title
       t.integer :readyInMinutes
@@ -31,10 +30,17 @@ class CreateRecipes < ActiveRecord::Migration[5.2]
       t.string :occasions
       t.string :winePairing
       t.string :instructions
-      t.string :analyzedInstructions
+      t.integer :weightWatcherSmartPoints
+      t.string :gaps
+      t.boolean :lowFodmap
+      t.integer :preparationMinutes
+      t.integer :cookingMinutes
+      t.string :summary
+      t.json :analyzedInstructions, default: {}
+      t.json :extendedIngredients, default: {}
 
       t.timestamps
-      t.index :spoonacularId, unique: true
+      t.index :id
     end
   end
 end

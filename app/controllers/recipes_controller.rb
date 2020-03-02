@@ -8,7 +8,16 @@ class RecipesController < ApplicationController
   end
 
   def show
-    @recipe = recipe_info_for(params[:id])
+    # retrieve recipe from spoonacular api and save to database, unless recipe already exists
+    unless Recipe.exists?(params[:id])
+      response = recipe_info_for(params[:id])
+      json = response.to_json
+      recipe = Recipe.new
+      @recipe = recipe.from_json(json)
+      @recipe.save
+    else
+      @recipe = Recipe.find(params[:id])
+    end
   end
 
   private
