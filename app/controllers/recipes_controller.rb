@@ -3,27 +3,27 @@ class RecipesController < ApplicationController
 
   def index
     @search = params[:search]
-    response = recipe_search_results_for @search
-    @recipes = get_recipe_list response
+    response = recipe_search_results_for(@search)
+    @recipes = get_recipe_array(response)
   end
 
   def show
-    # retrieve recipe from spoonacular api and save to database, unless recipe already exists
-    unless Recipe.exists?(params[:id])
-      response = recipe_info_for(params[:id])
-      json = response.to_json
-      recipe = Recipe.new
-      @recipe = recipe.from_json(json)
-      @recipe.save
-    else
+    # if the recipe exists in the database load the recipe
+    if Recipe.exists?(params[:id])
       @recipe = Recipe.find(params[:id])
+    else
+      # retrieve the recipe from the api
+      # then save the recipe to the database to help reduce api calls in the future
+      response = recipe_info_for(params[:id]).to_json
+      @recipe = Recipe.new
+      @recipe.from_json(response).save
     end
   end
 
   private
     # parse api json data into an array that the view can iterate over
-    def get_recipe_list(json)
-      recipes = JSON.parse json.body
+    def get_recipe_array(json)
+      recipes = JSON.parse(json.body)
       recipes["results"]
     end
 end
