@@ -15,3 +15,5 @@
 <% else %>
   <p>Sorry, there were no recipe results for “<%= @search %>”</p>
 <% end %>
+
+<%= will_paginate @recipes %>

@@ -21,8 +21,9 @@ module RecipesHelper
     image_tag "https://spoonacular.com/recipeImages/#{id}-#{IMAGE_SIZES[size]}"
   end
 
-  def recipe_search_results_for(search)
-    Faraday.get "#{RECIPE_SEARCH_URL}#{search}&apiKey=#{spoonacular_key}"
+  # returns recipes that contain the given search term, number of results can be between 1-100
+  def recipe_search_results_for(search, number=100)
+    Faraday.get "#{RECIPE_SEARCH_URL}#{search}&number=#{number}&apiKey=#{spoonacular_key}"
   end
 
   # retrieve recipe, returns faraday response object parsed as json
