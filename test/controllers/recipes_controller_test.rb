@@ -7,7 +7,7 @@ class RecipesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get show" do
-    get recipe_path(1)
+    get recipe_path(recipes(:one))
     assert_response :success
   end
 
