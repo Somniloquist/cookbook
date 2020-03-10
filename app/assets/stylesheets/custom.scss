@@ -1,10 +1,168 @@
+$btn-primary: #FF9147;
+$off-white: #f4f4f4;
+$font-primary: #333;
+$image-thumbnail-size: 90px;
+
+* {
+  box-sizing: border-box;
+}
+
+body{
+  font-family: sans-serif;
+  background: $off-white;
+}
+
+// debug info for dev enviroment
 .debug_dump {
   margin-top: 50px;
   padding-top: 8px;
   border-top: 1px solid #eaeaea;
 }
 
+// general
+.container {
+  width: 100%;
+  max-width: 1024px;
+  margin: auto;
+  padding: 0 6px;
+}
+
+#hero {
+  display: flex;
+  flex-direction: column;
+  align-items:  center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+  background: url(https://i.imgur.com/ZuOypqi.jpg) right top/cover;
+  h1 {
+    color: white;
+    margin: 0;
+  }
+}
+
+// forms
+.search-box {
+  &:hover {
+    box-shadow: 0 1px 6px 0 rgba(32,33,36,0.28);
+  }
+  position: relative;
+  input[type=text] {
+    width: 100%;
+    padding: 12px 52px 12px 12px;
+    position: relative;
+    border: 2px solid white;
+    background: white;
+    border-radius: 3px;
+  }
+  button[type=submit] {
+    background: $btn-primary;
+    border: 2px solid white;
+    border-radius: 3px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 45px;
+    height: 100%;
+    svg {
+      fill: white;
+      display: block;
+      margin: auto;
+    }
+  }
+}
+
+// hide the label for all devises except screen readers
+// more info here https://webaim.org/techniques/css/invisiblecontent/
+.sr-only {
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+}
+
+// search results
 .recipe-card {
-  padding: 10px 0;
-  border-bottom: 1px solid #eaeaea;
+  display: flex;
+  margin: 12px 0;
+  height: $image-thumbnail-size;
+  background: white;
+  border-radius: 10px;
+  &:hover {
+    box-shadow: 0 1px 6px 0 rgba(32,33,36,0.28);
+  }
+  .caret {
+    fill: rgba(0,0,0,0.35);
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      width: 39px;
+    }
+  }
+  a {
+    text-decoration: none;
+    color: $font-primary;
+  }
+}
+.recipe-card-image {
+  width: $image-thumbnail-size;
+  height: $image-thumbnail-size;
+  background: #eaeaea url(photo.svg) center/cover;
+  margin-right: 6px;
+  border-radius: 10px 0 0 10px;
+  flex-shrink: 0;
+  img {
+    border-radius: 10px 0 0 10px;
+  }
+}
+.recipe-card-info {
+  flex-basis: 100%;
+  position: relative;
+  height: 100%;
+  padding: 6px 0;
+  h2 {
+    margin: 0;
+    font-weight: normal;
+    font-size: 1rem;
+    overflow: hidden;
+    height: 55px;
+  }
+}
+.recipe-card-meta {
+  display: flex;
+  align-items: center;
+  flex-basis: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  color: rgba(0,0,0,0.5);
+  span {
+    margin-right: 12px;
+  }
+  svg {
+    fill: rgba(0,0,0,0.5);
+    transform: scale(0.76)
+  }
+}
+
+// recipe show page
+#recipe-content {
+  position: relative;
+  background: white;
+  margin-top: -35px;
+  border-radius: 30px 30px 0 0;
+}
+#recipe-image-container {
+  height: 50vh;
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
 }
