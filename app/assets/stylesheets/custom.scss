@@ -276,3 +276,36 @@ h1, h2 {
     }
   }
 }
+
+.pagination {
+  display: flex;
+  align-items: center;
+  max-width: 500px;
+  font-size: 0.86rem;
+  text-align: center;
+  > * {
+    flex: 1;
+    border-radius: 5px;
+    padding: 8px 4px;
+    &:hover {
+      background: #ccc;
+    }
+  }
+  a {
+    color: $font-primary;
+    text-decoration: none;
+  }
+  .previous_page, .next_page {
+    min-width: 75px;
+  }
+  .current {
+    background: $btn-primary;
+    color: white;
+    font-weight: 800;
+    font-style: normal;
+  }
+  .disabled {
+    color: #999;
+    color: rgba(0,0,0,0.35)
+  }
+}
