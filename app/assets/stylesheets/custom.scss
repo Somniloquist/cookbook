@@ -7,9 +7,17 @@ $image-thumbnail-size: 90px;
   box-sizing: border-box;
 }
 
+html {
+  font-size: 85%;
+}
+
 body{
   font-family: sans-serif;
   background: $off-white;
+}
+
+h1, h2 {
+  font-weight: 400;
 }
 
 // debug info for dev enviroment
@@ -157,6 +165,10 @@ body{
   background: white;
   margin-top: -35px;
   border-radius: 30px 30px 0 0;
+  padding: 20px;
+  h1 {
+    margin: 0 0 0.37em 0;
+  }
 }
 #recipe-image-container {
   height: 50vh;
@@ -165,4 +177,85 @@ body{
     width: 100%;
     object-fit: cover;
   }
+}
+
+.recipe-meta {
+  padding: 12px 0;
+  display: flex;
+  align-items: center;
+  flex-basis: 100%;
+  color: rgba(0,0,0,0.5);
+  span {
+    margin-right: 12px;
+  }
+  svg {
+    fill: rgba(0,0,0,0.5);
+    transform: scale(0.76)
+  }
+}
+
+.custom-checkbox {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  &:after {
+    content: "";
+    position: absolute;
+    display: none;
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+}
+
+.checklist-item {
+  position: relative;
+  display: block;
+  cursor: pointer;
+  padding-left: 40px;
+  margin-bottom: 18px;
+  line-height: 1.5rem;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  input[type=checkbox] {
+    // need to hide the default checkbox because we can't style it with CSS
+    // opacity 0 keeps it visible for screen readers
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+
+    &:focus {
+      // add focus to custom checkbox for accessability
+      ~ .custom-checkbox {
+        box-shadow: 0 0 0 3px rgba(255, 145, 71, 0.4);
+      }
+    }
+    &:hover {
+      ~ .custom-checkbox {
+        background: #ccc;
+      }
+    }
+    &:checked {
+      ~ .custom-checkbox {
+        background: $btn-primary;
+        &:after {
+          display: block;
+        }
+      }
+    }
+  } 
 }
