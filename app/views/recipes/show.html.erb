@@ -1,6 +1,6 @@
 <article>
   <div id="recipe-image-container">
-    <%= image_for @recipe.id, :source %>
+    <%= image_for @recipe.id, :source unless @recipe.image.nil? %>
   </div>
   <div id="recipe-content" class="container">
     <header>

@@ -2,9 +2,11 @@
   <% unless @recipes.empty? %>
     <% @recipes.each do |recipe| %>
       <div class="recipe-card">
-        <div class="recipe-card-image">
-          <div><%= link_to image_for(recipe["id"], :thumbnail), recipe_path(recipe["id"]) %></div>
-        </div>
+        <%= link_to recipe_path(recipe["id"]) do %>
+          <div class="recipe-card-image">
+            <div><%= image_for(recipe["id"], :thumbnail) unless recipe["image"].nil? %></div>
+          </div>
+        <% end %>
 
         <div class="recipe-card-info">
           <h2><%= link_to recipe["title"], recipe_path(recipe["id"]) %></h2>
