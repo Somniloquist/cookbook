@@ -1,4 +1,4 @@
-<%= form_with url: recipes_path, method: :get, local: true do |f| %>
+<%= form_with url: recipes_path, method: :get, local: true, class: "search-form" do |f| %>
   <div class="form-group">
     <%= f.label :search, class: "sr-only" %>
     <div class="search-box">
