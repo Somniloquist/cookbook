@@ -13,6 +13,8 @@
   <body>
     <%= render "layouts/header" %>
     <%= yield %>
+    <!-- Site logo attribution text -->
+    <div> Logo icon made by <a href="https://www.flaticon.com/authors/those-icons" title="Those Icons">Those Icons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
   </body>
 
   <%= debug(params) if Rails.env.development? %>
