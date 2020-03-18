@@ -18,3 +18,17 @@ function closeNav() {
     nav.style.visibility = "hidden";
   }, 400);
 }
+
+function expandNavSearch() {
+  var navSearch = document.getElementById("nav-search");
+  navSearch.style.visibility = "visible";
+    navSearch.style.opacity = "1";
+}
+
+function closeNavSearch() {
+  var navSearch = document.getElementById("nav-search");
+  navSearch.style.opacity = "0";
+  setTimeout(() => { 
+    navSearch.style.visibility = "hidden";
+  }, 200);
+}
