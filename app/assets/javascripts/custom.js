@@ -16,18 +16,22 @@ function closeNav() {
   setTimeout(() => { 
     closeArea.style.visibility = "hidden";
     nav.style.visibility = "hidden";
-  }, 400);
+  }, 300);
 }
 
 function expandNavSearch() {
   var navSearch = document.getElementById("nav-search");
+  var closeButton = document.querySelector("#close-nav-search svg");
   navSearch.style.visibility = "visible";
-    navSearch.style.opacity = "1";
+  navSearch.style.opacity = "1";
+  closeButton.style.transform = "rotate(0deg)";
 }
 
 function closeNavSearch() {
   var navSearch = document.getElementById("nav-search");
+  var closeButton = document.querySelector("#close-nav-search svg");
   navSearch.style.opacity = "0";
+  closeButton.style.transform = "rotate(-45deg)";
   setTimeout(() => { 
     navSearch.style.visibility = "hidden";
   }, 200);
