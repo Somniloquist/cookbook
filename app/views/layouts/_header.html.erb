@@ -13,21 +13,23 @@
 
 <!-- Mobile navigation search form, only shows after being toggled on -->
   <div id="nav-search">
-    <%= form_with url: recipes_path, method: :get, local: true, class: "nav-search-form" do |f| %>
-      <div class="form-group">
-        <%= f.label :search, class: "sr-only" %>
-        <div class="nav-search-box">
-          <%= f.text_field :search, placeholder: "What would you like to eat...?" %>
-          <!-- Allow user to close the search bar -->
-          <%= button_tag type: "button", onclick: "closeNavSearch()", id: "close-nav-search", class: "nav-btn" do %>
-            <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
-              <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
-              <path d="M0 0h24v24H0z" fill="none"/>
-            </svg>
-          <% end %>
+    <div class="nav-search-container">
+      <%= form_with url: recipes_path, method: :get, local: true, class: "nav-search-form" do |f| %>
+        <div class="form-group">
+          <%= f.label :search, class: "sr-only" %>
+          <div class="nav-search-box">
+            <%= f.text_field :search, placeholder: "What would you like to eat...?" %>
+            <!-- Allow user to close the search bar -->
+            <%= button_tag type: "button", onclick: "closeNavSearch()", id: "close-nav-search", class: "nav-btn" do %>
+              <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
+                <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                <path d="M0 0h24v24H0z" fill="none"/>
+              </svg>
+            <% end %>
+          </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
 
   <div class="main-nav">
