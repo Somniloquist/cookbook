@@ -1,0 +1,13 @@
+
+        <% if @recipe.vegetarian %>
+          <span class="pill pill-vegetarian">vegetarian</span>
+        <% end %>
+        <% if @recipe.vegan %>
+          <span class="pill pill-vegan">vegan</span>
+        <% end %>
+        <% if @recipe.glutenFree %>
+          <span class="pill pill-gluten">gluten free</span>
+        <% end %>
+        <% if @recipe.dairyFree %>
+          <span class="pill pill-dairy">dairy free</span>
+        <% end %>

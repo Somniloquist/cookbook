@@ -392,8 +392,16 @@ h1, h2 {
   padding: 20px;
   header {
     text-align: center;
+    margin-bottom: 24px;
+    .attribution {
+      font-size: 0.86rem;
+    }
+  }
+  h1 {
+    margin-bottom: 0;
   }
 }
+
 #recipe-image-container {
   height: 50vh;
   // fallback incase the recipe has no image
@@ -407,10 +415,7 @@ h1, h2 {
 }
 
 .recipe-meta {
-  padding-bottom: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  margin-bottom: 24px;
   flex-basis: 100%;
   color: rgba(0,0,0,0.5);
   span {
@@ -420,11 +425,47 @@ h1, h2 {
     fill: rgba(0,0,0,0.5);
     transform: scale(0.76)
   }
+  .info {
+    margin-bottom: 3px;
+  }
+  .info, .diets{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.diets {
+  display: flex;
+  flex-wrap: wrap;
+  .pill {
+    background: #000;
+    color: white;
+    font-weight: 600;
+    font-size: 0.86rem;
+    white-space: nowrap;
+    border-radius: 10px;
+    padding: 4px 12px;
+    margin: 3px 6px;
+  }
+  .pill-vegetarian {
+    background: #2A8454;
+  }
+  .pill-vegan {
+    background: #627E4E;
+  }
+  .pill-dairy {
+    background: #907237;
+  }
+  .pill-gluten {
+    background: #377CA4;
+  }
 }
 
 .checklist {
   margin-bottom: 72px;
   h2 {
+    margin-top: 0;
     padding-left: 40px;
   }
 }
@@ -541,11 +582,13 @@ h1, h2 {
 // FOOTER
 footer {
   margin-top: 60px;
+  .attribution {
+    font-size: 0.9rem;
+    text-align: right;
+  }
 }
 .attribution {
-  font-size: 0.9rem;
   color: #6f6f6f;
-  text-align: right;
   a {
     text-decoration: none;
     color: #6f6f6f;
