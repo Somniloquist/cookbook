@@ -1,12 +1,20 @@
+// colors
 $orange-primary: #FF9147;
 $orange-secondary: #FFCEAD;
 $off-white: #f4f4f4;
 $font-primary: #333;
+$gray-background: #2A2A2E;
+$gray-foreground: #38383D;
+
 $image-thumbnail-size: 90px;
 $max-width: 1024px;
 $navbar-height: 60px;
 
+//breakpoints
+$breakpoint-sm: 576px;
 $breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
 
 * {
   box-sizing: border-box;
@@ -19,6 +27,9 @@ html {
 body{
   font-family: sans-serif;
   background: $off-white;
+  // @media(prefers-color-scheme: dark) {
+  //   background: $gray-background;
+  // }
 }
 
 h1, h2 {
@@ -49,8 +60,11 @@ h1, h2 {
   justify-content: center;
   height: calc(100vh - #{$navbar-height});
   text-align: center;
-  background: url(https://i.imgur.com/ZuOypqi.jpg) right top/cover;
   padding: 0 12px;
+  background: url(https://i.imgur.com/YZwPdZi.jpg) center/cover;
+  @media(min-width: $breakpoint-lg) {
+    height: 600px;
+  }
   h1 {
     color: white;
     margin-top: 0;
@@ -70,6 +84,9 @@ h1, h2 {
 #hero-content {
   position: relative;
   z-index: 2;
+  @media(min-width: $breakpoint-lg) {
+    max-width: 550px;
+  }
 }
 
 // NAVBAR
@@ -581,7 +598,11 @@ h1, h2 {
 
 // FOOTER
 footer {
-  margin-top: 60px;
+  padding-top: 60px;
+  padding-bottom: 30px;
+  .container {
+    border-top: 1px solid #c4c4c4;
+  }
   .attribution {
     font-size: 0.9rem;
     text-align: right;
