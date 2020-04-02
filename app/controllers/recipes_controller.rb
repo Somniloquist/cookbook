@@ -5,7 +5,7 @@ class RecipesController < ApplicationController
     @search = params[:search]
     response = recipe_search_results_for(@search)
     search_results = get_recipe_array(response)
-    @recipes = search_results.paginate(page: params[:page], per_page: 10)
+    @recipes = search_results.paginate(page: params[:page], per_page: 12)
   end
 
   def show

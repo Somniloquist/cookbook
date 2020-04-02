@@ -7,6 +7,7 @@ $gray-background: #2A2A2E;
 $gray-foreground: #38383D;
 
 $image-thumbnail-size: 90px;
+$image-medium-size: 231px;
 $max-width: 1024px;
 $navbar-height: 60px;
 
@@ -335,9 +336,20 @@ h1, h2 {
 }
 
 // search results
+.recipe-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 10px;
+  margin: 12px auto;
+  @media(min-width: $breakpoint-md) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  @media(min-width: $breakpoint-lg) {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
 .recipe-card {
   display: flex;
-  margin: 12px 0;
   height: $image-thumbnail-size;
   background: white;
   border-radius: 10px;
@@ -358,6 +370,13 @@ h1, h2 {
     text-decoration: none;
     color: $font-primary;
   }
+  @media(min-width: $breakpoint-md) {
+    flex-direction: column;
+    height: 100%;
+    .caret {
+      display: none;
+    }
+  }
 }
 .recipe-card-image {
   width: $image-thumbnail-size;
@@ -365,9 +384,20 @@ h1, h2 {
   background: #eaeaea url(photo.svg) center/cover;
   margin-right: 6px;
   border-radius: 10px 0 0 10px;
-  flex-shrink: 0;
   img {
     border-radius: 10px 0 0 10px;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    @media(min-width: $breakpoint-md) {
+      border-radius: 10px 10px 0 0;
+      margin-right: 0;
+    }
+  }
+  @media(min-width: $breakpoint-md) {
+    border-radius: 10px 10px 0 0;
+    height: $image-medium-size;
+    width: 100%;
   }
 }
 .recipe-card-info {
@@ -381,6 +411,12 @@ h1, h2 {
     font-size: 1rem;
     overflow: hidden;
     height: 55px;
+    @media(min-width: $breakpoint-md) {
+      margin-bottom: 1.5rem;
+    }
+  }
+  @media(min-width: $breakpoint-md) {
+    padding: 6px;
   }
 }
 .recipe-card-meta {
@@ -397,6 +433,9 @@ h1, h2 {
   svg {
     fill: rgba(0,0,0,0.5);
     transform: scale(0.76)
+  }
+  @media(min-width: $breakpoint-md) {
+    padding: 6px;
   }
 }
 
