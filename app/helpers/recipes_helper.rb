@@ -28,7 +28,7 @@ module RecipesHelper
 
   # retrieve recipe, returns faraday response object parsed as json
   def recipe_info_for(id)
-    response = Faraday.get("https://api.spoonacular.com/recipes/#{id}/information?includeNutrition=false&apiKey=#{spoonacular_key}")
+    response = Faraday.get("https://api.spoonacular.com/recipes/#{id}/information?includeNutrition=true&apiKey=#{spoonacular_key}")
     JSON.parse response.body
   end
 

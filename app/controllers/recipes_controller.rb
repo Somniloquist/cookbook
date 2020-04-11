@@ -19,6 +19,8 @@ class RecipesController < ApplicationController
       @recipe = Recipe.new
       @recipe.from_json(response).save
     end
+
+    @nutrition = @recipe.nutrition["nutrients"]
   end
 
   private

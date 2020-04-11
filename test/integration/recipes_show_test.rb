@@ -11,7 +11,8 @@ class RecipesShowTest < ActionDispatch::IntegrationTest
     assert_select "img:match('src', ?)", /#{@recipe.id}/
     assert_select "h1", @recipe.title
     assert_select "h2", "Ingredients"
-    assert_select "span.ready-in-minutes", "#{@recipe.readyInMinutes}"
-    assert_select "span.servings", "#{@recipe.servings}"
+    assert_select "span#ready-in-minutes", "#{@recipe.readyInMinutes}"
+    assert_select "span#servings", "#{@recipe.servings}"
+    assert_select "span#calories", "#{@recipe.nutrition['nutrients'][0]['amount']}"
   end
 end
