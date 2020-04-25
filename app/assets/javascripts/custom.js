@@ -36,3 +36,10 @@ function closeNavSearch() {
     navSearch.style.visibility = "hidden";
   }, 200);
 }
+
+function toggleStrikethrough(id) {
+  var checklistItem = document.getElementById(id);
+  checklistItem.addEventListener("click", function() {
+    checklistItem.classList.toggle("strikethrough");
+  });
+}
