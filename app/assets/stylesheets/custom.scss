@@ -1,10 +1,27 @@
 // colors
 $orange-primary: #FF9147;
 $orange-secondary: #FFCEAD;
-$off-white: #f4f4f4;
-$font-primary: #333;
-$gray-background: #2A2A2E;
-$gray-foreground: #38383D;
+
+$light-primary: #fff;
+$light-secondary: #eaeaea;
+$light-font-primary: #333;
+$light-font-secondary: #757575;
+
+$dark-primary: #38383D;
+$dark-secondary: #2A2A2E;
+$dark-font-primary: #efeff1;
+$dark-font-secondary: #a2a2a2;
+
+$dove-gray: #6f6f6f;
+$wild-sand: #777;
+$silver: #c4c4c4;
+$alto: #dfdfdf;
+$gallery: #eaeaea;
+$romantic: #ffd5b9;
+$dingley: #627E4E;
+$astral: #377CA4;
+$sea-green: #2a8454;
+$pesto: #907237;
 
 $image-thumbnail-size: 90px;
 $image-medium-size: 231px;
@@ -28,10 +45,10 @@ html {
 
 body{
   font-family: "Open Sans", sans-serif;
-  background: $off-white;
-  // @media(prefers-color-scheme: dark) {
-  //   background: $gray-background;
-  // }
+  background: $light-secondary;
+  @media(prefers-color-scheme: dark) {
+    background: $dark-secondary;
+  }
 }
 
 h1, h2 {
@@ -53,6 +70,10 @@ h1, h2 {
   margin-top: 8px;
   padding-top: 8px;
   border-top: 1px solid #eaeaea;
+  @media(prefers-color-scheme: dark) {
+    border-top: 1px solid $dark-primary;
+    color: $wild-sand;
+  }
 }
 
 // general
@@ -82,6 +103,9 @@ h1, h2 {
     color: white;
     margin-top: 0;
     font-size: 3rem;
+    @media(prefers-color-scheme: dark) {
+      color: $dark-font-primary;
+    }
   }
   &:after {
     position: absolute;
@@ -107,23 +131,18 @@ h1, h2 {
   display: flex;
   align-items: center;
   text-decoration: none;
-  &:hover {
-    .logo {
-      background: $orange-secondary;
-      border-radius: 0 50%;
-    }
-  }
 }
 
 .logo {
   border-radius: 50% 0;
-  background: #dfdfdf;
   padding: 6px;
   margin-right: 6px;
-  transition: 300ms ease-in-out;
   svg {
     height: 34px;
     width: auto;
+  }
+  @media(prefers-color-scheme: dark) {
+    fill: $dark-font-primary;
   }
 }
 
@@ -132,12 +151,10 @@ h1, h2 {
   letter-spacing: 0.14em;
   text-transform: uppercase;
   font-size: 1.42rem;
-  color: black;
-}
-
-.logo-text-sidebar {
-  @extend .logo-text;
-  display: block;
+  color: $light-font-primary;
+  @media(prefers-color-scheme: dark) {
+    color: $dark-font-primary;
+  }
 }
 
 .mobile-nav-header {
@@ -145,7 +162,10 @@ h1, h2 {
   display: flex;
   align-items: center;
   padding: 0 12px;
-  border-bottom: 1px solid #eaeaea;
+  border-bottom: 1px solid $light-primary;
+  @media(prefers-color-scheme: dark) {
+    border-bottom: 1px solid $dark-primary;
+  }
   .logo {
     svg {
       height: 28px;
@@ -163,28 +183,36 @@ h1, h2 {
     font-weight: 600;
     text-transform: uppercase;
     a {
-      color: rgba(0,0,0,0.56);
+      color: $light-font-primary;
       text-decoration: none;
       transition: 300ms;
       &:hover {
         color: black;
+      }
+      @media(prefers-color-scheme: dark) {
+        color: $dark-font-secondary;
       }
     }
   }
 }
 
 .logo-text-sidebar {
+  @extend .logo-text;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   font-size: 1.76rem;
-  color: black;
+  display: block;
 }
+
 
 .navbar {
   border-bottom: 1px solid white;
   height: $navbar-height;
   padding: 6px 12px;
   margin-bottom: 24px;
+  @media(prefers-color-scheme: dark) {
+    border-bottom: 1px solid $dark-primary;
+  }
 }
 .main-nav {
   display: flex;
@@ -211,6 +239,9 @@ h1, h2 {
   z-index: 4;
   transition: 300ms;
   box-shadow: 5px 0 25px rgba(0,0,0,0.25);
+  @media(prefers-color-scheme: dark) {
+    background: $dark-secondary;
+  }
 }
 
 #mobile-nav-close {
@@ -242,6 +273,15 @@ h1, h2 {
     background: #eaeaea;
     outline: 0; // remove default chrome focus outline
     box-shadow: 0 0 0 3px rgba(255, 145, 71, 0.4);
+  }
+  @media(prefers-color-scheme: dark) {
+    fill: $dark-font-primary;
+    &:hover {
+      background: $dark-primary;
+    }
+    &:focus {
+      background: $dark-primary;
+    }
   }
 }
 
@@ -313,6 +353,11 @@ h1, h2 {
       outline: 0; // remove default chrome focus outline
       border-color: $orange-primary;
     }
+    @media(prefers-color-scheme: dark) {
+      border: 2px solid $dark-primary;
+      background: $dark-secondary;
+      color: $dark-font-primary;
+    }
   }
   button[type=submit] {
     background: transparent;
@@ -361,13 +406,13 @@ h1, h2 {
 .recipe-card {
   display: flex;
   height: $image-thumbnail-size;
-  background: white;
+  background: $light-primary;
   border-radius: 10px;
   &:hover {
-    box-shadow: 0 0 0 3px $orange-secondary;
+    box-shadow: 0 0 0 3px $orange-primary;
   }
   .caret {
-    fill: rgba(0,0,0,0.35);
+    fill: $light-font-secondary;
     a {
       display: flex;
       align-items: center;
@@ -378,7 +423,7 @@ h1, h2 {
   }
   a {
     text-decoration: none;
-    color: $font-primary;
+    color: $light-font-primary;
   }
   @media(min-width: $breakpoint-md) {
     flex-direction: column;
@@ -387,11 +432,20 @@ h1, h2 {
       display: none;
     }
   }
+  @media(prefers-color-scheme: dark) {
+    background: $dark-primary;
+    .caret {
+      fill: $dark-font-secondary
+    }
+    a {
+      color: $dark-font-primary;
+    }
+  }
 }
 .recipe-card-image {
   width: $image-thumbnail-size;
   height: $image-thumbnail-size;
-  background: #eaeaea url(photo.svg) center/cover;
+  background: url(photo.svg) center/cover;
   margin-right: 6px;
   border-radius: 10px 0 0 10px;
   img {
@@ -436,12 +490,12 @@ h1, h2 {
   position: absolute;
   bottom: 0;
   left: 0;
-  color: rgba(0,0,0,0.5);
+  color: $light-font-secondary;
   span {
     margin-right: 12px;
   }
   svg {
-    fill: rgba(0,0,0,0.5);
+    fill: $dark-font-secondary;
     transform: scale(0.76)
   }
   @media(min-width: $breakpoint-md) {
@@ -458,7 +512,7 @@ article {
 }
 #recipe-content {
   position: relative;
-  background: white;
+  background: $light-primary;
   margin-top: -35px;
   border-radius: 30px;
   padding: 36px;
@@ -484,6 +538,9 @@ article {
   @media(min-width: $breakpoint-lg) {
     margin-top: 0;
   }
+  @media(prefers-color-scheme: dark) {
+    background: $dark-primary;
+  }
 }
 
 #recipe-header-info {
@@ -496,6 +553,10 @@ article {
 }
 
 .recipe-title {
+  color: $light-font-primary;
+  @media(prefers-color-scheme: dark) {
+    color: $dark-font-primary;
+  }
   margin-bottom: 24px;
   text-transform: capitalize;
   @media(min-width: $breakpoint-lg) {
@@ -538,7 +599,7 @@ article {
 
 .recipe-meta {
   margin-bottom: 24px;
-  color: rgba(0,0,0,0.5);
+  color: $light-font-secondary;
   svg {
     fill: rgba(0,0,0,0.5);
     transform: scale(0.76)
@@ -546,6 +607,9 @@ article {
   @media(min-width: $breakpoint-lg) {
     display: flex;
     flex-direction: column-reverse;
+  }
+  @media(prefers-color-scheme: dark) {
+    color: $dark-font-secondary;
   }
 }
 
@@ -556,8 +620,11 @@ article {
     @media(min-width: $breakpoint-lg) {
       width: 1px;
       height: 100%;
-      background: #c4c4c4;
+      background: $light-secondary;
       margin: 0 24px;
+      @media(prefers-color-scheme: dark) {
+        background: $dark-secondary;
+      }
     }
   }
   @media(min-width: $breakpoint-lg) {
@@ -603,7 +670,6 @@ article {
   display: flex;
   flex-wrap: wrap;
   .pill {
-    background: #000;
     color: white;
     font-size: 0.86rem;
     white-space: nowrap;
@@ -630,6 +696,10 @@ article {
 
 .checklist {
   margin-bottom: 72px;
+  color: $light-font-primary;
+  @media(prefers-color-scheme: dark) {
+    color: $dark-font-primary;
+  }
   h2 {
     margin-top: 0;
     padding-left: 40px;
@@ -642,7 +712,11 @@ article {
   left: 0;
   height: 25px;
   width: 25px;
-  background-color: #eee;
+  background: $light-secondary;
+  @media(prefers-color-scheme: dark) {
+    background: $dark-secondary;
+  }
+  // custom checkmark icon
   &:after {
     content: "";
     position: absolute;
@@ -688,7 +762,10 @@ article {
     }
     &:hover {
       ~ .custom-checkbox {
-        background: #ccc;
+        background: $alto;
+        @media(prefers-color-scheme: dark) {
+          background: #313133;
+        }
       }
     }
     &:checked {
@@ -707,6 +784,10 @@ article {
 }
 
 .instructions {
+  color: $light-font-primary;
+  @media(prefers-color-scheme: dark) {
+    color: $dark-font-primary;
+  }
   ol {
     line-height: 1.5rem;
     li {
@@ -727,12 +808,18 @@ article {
     border-radius: 5px;
     padding: 10px 4px;
     &:hover {
-      background: #ccc;
+      background: $light-primary;
+      @media(prefers-color-scheme: dark) {
+        background: $dark-primary;
+      }
     }
   }
   a {
-    color: $font-primary;
+    color: $light-font-primary;
     text-decoration: none;
+    @media(prefers-color-scheme: dark) {
+      color: $dark-font-primary;
+    }
   }
   .previous_page, .next_page {
     min-width: 75px;
@@ -744,8 +831,10 @@ article {
     font-style: normal;
   }
   .disabled {
-    color: #999;
-    color: rgba(0,0,0,0.35)
+    color: rgba(0,0,0,0.25);
+    @media(prefers-color-scheme: dark) {
+      color: rgba(255,255,255,0.25);
+    }
   }
 }
 
@@ -755,6 +844,9 @@ footer {
   padding-bottom: 30px;
   .container {
     border-top: 1px solid #c4c4c4;
+    @media(prefers-color-scheme: dark) {
+      border-top: 1px solid $dark-primary;
+    }
   }
   .attribution {
     font-size: 0.9rem;
@@ -762,10 +854,16 @@ footer {
   }
 }
 .attribution {
-  color: #6f6f6f;
+  color: $light-font-secondary;
+  @media(prefers-color-scheme: dark) {
+    color: $dark-font-secondary;
+    a {
+      color: $dark-font-primary;
+    }
+  }
   a {
     text-decoration: none;
-    color: #6f6f6f;
+    color: $light-font-secondary;
     font-weight: 600;
     &:hover {
       text-decoration: underline;
