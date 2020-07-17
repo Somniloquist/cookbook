@@ -146,6 +146,7 @@ h1, h2 {
 }
 
 .logo-text {
+  display: none;
   font-family: 'Comfortaa', sans-serif;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -153,6 +154,9 @@ h1, h2 {
   color: $light-font-primary;
   @media(prefers-color-scheme: dark) {
     color: $dark-font-primary;
+  }
+  @media(min-width: $breakpoint-md) {
+    display: block;
   }
 }
 
@@ -882,5 +886,34 @@ footer {
     &:hover {
       text-decoration: underline;
     }
+  }
+}
+
+// BUTTONS
+.btn {
+  padding: 10px;
+  margin: 0 6px;
+  color: $light-font-primary;
+  text-decoration: none;
+  @media(prefers-color-scheme: dark) {
+    color: $dark-font-primary;
+  }
+}
+
+.btn-outline {
+  border: 1px solid $dark-font-primary;
+  @media(prefers-color-scheme: dark) {
+    border: 1px solid $dark-font-primary;
+  }
+}
+
+.btn-primary {
+  color: $dark-font-primary;
+  border: 1px solid $light-font-primary;
+  background: $light-font-primary;
+  @media(prefers-color-scheme: dark) {
+    color: $light-font-primary;
+    border: 1px solid $dark-font-primary;
+    background: $dark-font-primary;
   }
 }

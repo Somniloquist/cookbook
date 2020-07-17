@@ -7,11 +7,14 @@
     </div>
     <ul class="mobile-nav-links"> 
       <li><%=link_to "home", root_path %></li>
+      <% if user_signed_in? %>
+        <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+      <% end %>
     </ul>
   </div>
   <div id="mobile-nav-close" onclick="closeNav()"></div>
 
-<!-- Mobile navigation search form, only shows after being toggled on -->
+<!-- navigation search form, only shows after being toggled on -->
   <div id="nav-search">
     <div class="nav-search-container">
       <%= form_with url: recipes_path, method: :get, local: true, class: "nav-search-form" do |f| %>
@@ -44,6 +47,10 @@
     </div>
 
     <div class="nav-container">
+      <% unless user_signed_in? %>
+        <%= link_to "Log in", new_user_session_path, class: "btn btn-outline" %>
+        <%= link_to "Sign up" , new_user_registration_path, class: "btn btn-primary" %>
+      <% end %>
       <%= button_tag onclick: "expandNavSearch()", class: "nav-btn", id: "nav-search-expand" do %>
         <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
           <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
