@@ -917,3 +917,28 @@ footer {
     background: $dark-font-primary;
   }
 }
+
+// FLASH
+#flash-container {
+  position: fixed;
+  bottom: 24px;
+  right: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  z-index: 999;
+}
+#flash {
+  padding: 16px;
+  border-left: 6px solid $dark-primary;
+  color: $light-font-primary;
+  background: $light-primary;
+  -webkit-box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.75);
+  @media(prefers-color-scheme: dark) {
+    color: $dark-font-primary;
+    background: $dark-primary;
+    border-left: 6px solid $light-primary;
+  }
+}

@@ -12,6 +12,16 @@
   </head>
 
   <body>
+    <% unless flash.empty? %>
+      <div id="flash-container">
+        <div id="flash">
+          <% flash.each do |key, value| %>
+            <%= content_tag :div, value, class: "flash alert alert-#{key} text-center" %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+
     <%= render "layouts/header" %>
     <%= yield %>
     <%= render "layouts/footer" %>
