@@ -9,7 +9,7 @@ $dark-secondary: #2A2A2E;
 $dark-font-primary: #efeff1;
 $dark-font-secondary: #a2a2a2;
 $dark-btn-highlight: #48484d;
-$orange-primary: #FF9147;
+$orange-primary: #ff6633;
 $orange-secondary: #FFCEAD;
 $dove-gray: #6f6f6f;
 $wild-sand: #777;
@@ -53,6 +53,24 @@ body{
 h1, h2 {
   font-family: 'Comfortaa', sans-serif;
   font-weight: 400;
+}
+
+h1 {
+  @media(min-width: $breakpoint-lg) {
+    font-size: 2.6rem;
+  }
+}
+
+.focus-text-input {
+  input[type=text], input[type=email], input[type=password] {
+    &:hover {
+      border-color: $orange-primary;
+    }
+    &:focus {
+      outline: 0; //removes default focus outline
+      border-color: $orange-primary;
+    }
+  }
 }
 
 .section-divider {
@@ -231,6 +249,9 @@ h1, h2 {
 .nav-container {
   display: flex;
   align-items: center;
+  .btn {
+    margin: 0 6px;
+  }
 }
 
 #mobile-nav {
@@ -357,6 +378,7 @@ h1, h2 {
 
 // forms
 .search-box {
+  @extend .focus-text-input;
   position: relative;
   input[type=text] {
     width: 100%;
@@ -364,13 +386,6 @@ h1, h2 {
     border: 2px solid white;
     background: white;
     border-radius: 3px;
-    &:hover {
-      border-color: $orange-primary;
-    }
-    &:focus {
-      outline: 0; // remove default chrome focus outline
-      border-color: $orange-primary;
-    }
     @media(prefers-color-scheme: dark) {
       border: 2px solid $dark-primary;
       background: $dark-secondary;
@@ -537,7 +552,7 @@ article {
   header {
     text-align: center;
     margin-bottom: 48px;
-    .attribution {
+    .subtext {
       font-size: 0.86rem;
     }
     @media(min-width: $breakpoint-lg) {
@@ -549,7 +564,6 @@ article {
   h1 {
     margin-bottom: 0;
     @media(min-width: $breakpoint-lg) {
-      font-size: 2.6rem;
       margin-top: 0;
     }
   }
@@ -866,12 +880,12 @@ footer {
       border-top: 1px solid $dark-primary;
     }
   }
-  .attribution {
+  .subtext {
     font-size: 0.9rem;
     text-align: right;
   }
 }
-.attribution {
+.subtext {
   color: $light-font-secondary;
   @media(prefers-color-scheme: dark) {
     color: $dark-font-secondary;
@@ -891,8 +905,11 @@ footer {
 
 // BUTTONS
 .btn {
-  padding: 10px;
-  margin: 0 6px;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.056rem;
+  padding: 9px;
+  border-radius: 3px;
   color: $light-font-primary;
   text-decoration: none;
   @media(prefers-color-scheme: dark) {
@@ -901,21 +918,16 @@ footer {
 }
 
 .btn-outline {
-  border: 1px solid $dark-font-primary;
+  border: 2px solid $dark-font-primary;
   @media(prefers-color-scheme: dark) {
-    border: 1px solid $dark-font-primary;
+    border: 2px solid $dark-font-primary;
   }
 }
 
 .btn-primary {
   color: $dark-font-primary;
-  border: 1px solid $light-font-primary;
-  background: $light-font-primary;
-  @media(prefers-color-scheme: dark) {
-    color: $light-font-primary;
-    border: 1px solid $dark-font-primary;
-    background: $dark-font-primary;
-  }
+  border: 2px solid $orange-primary;
+  background: $orange-primary;
 }
 
 // FLASH
@@ -941,4 +953,32 @@ footer {
     background: $dark-primary;
     border-left: 6px solid $light-primary;
   }
+}
+
+// FORMS
+.field {
+  @extend .focus-text-input;
+  margin: 12px 0;
+  label {
+    font-size: 1.15rem;
+    font-family: 'Comfortaa', sans-serif;
+  }
+  input {
+    width: 100%;
+    padding: 9px;
+    margin-top: 6px;
+    border: 2px solid $light-primary;
+    border-radius: 3px;
+    background: $light-primary;
+    color: $light-font-primary;
+    @media(prefers-color-scheme: dark) {
+      border: 2px solid $dark-primary;
+      background: $dark-primary;
+      color: $dark-font-primary;
+    }
+  }
+}
+
+.session-links {
+  margin-top: 9px;
 }

@@ -48,7 +48,7 @@
 
     <div class="nav-container">
       <% unless user_signed_in? %>
-        <%= link_to "Log in", new_user_session_path, class: "btn btn-outline" %>
+        <%= link_to "Log in", new_user_session_path, class: "btn" %>
         <%= link_to "Sign up" , new_user_registration_path, class: "btn btn-primary" %>
       <% end %>
       <%= button_tag onclick: "expandNavSearch()", class: "nav-btn", id: "nav-search-expand" do %>
