@@ -9,7 +9,7 @@ $dark-secondary: #2A2A2E;
 $dark-font-primary: #efeff1;
 $dark-font-secondary: #a2a2a2;
 $dark-btn-highlight: #48484d;
-$orange-primary: #ff6633;
+$orange-primary: #ea5d2e;
 $orange-secondary: #FFCEAD;
 $dove-gray: #6f6f6f;
 $wild-sand: #777;
@@ -905,6 +905,7 @@ footer {
 
 // BUTTONS
 .btn {
+  cursor: pointer;
   text-transform: uppercase;
   font-weight: 600;
   letter-spacing: 0.056rem;
@@ -942,23 +943,41 @@ footer {
 }
 #flash {
   padding: 16px;
-  border-left: 6px solid $dark-primary;
+  border-left: 6px solid $orange-primary;
   color: $light-font-primary;
   background: $light-primary;
-  -webkit-box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.75);
-  -moz-box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.75);
-  box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.75);
+  -webkit-box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.35);
+  -moz-box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.35);
+  box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.35);
   @media(prefers-color-scheme: dark) {
     color: $dark-font-primary;
     background: $dark-primary;
-    border-left: 6px solid $light-primary;
   }
 }
 
 // FORMS
+.form-container {
+  max-width: 326px;
+  margin: auto;
+}
+.form-card {
+  background: $light-primary;
+  padding: 25px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16),0 3px 6px rgba(0,0,0,0.23);
+  margin-bottom: 15px;
+  border-radius: 0.25rem;
+  .btn {
+    width: 100%;
+  }
+  @media(prefers-color-scheme: dark) {
+    background: $dark-primary;
+  }
+}
 .field {
+  margin-bottom: 16px;
+}
+.form-control {
   @extend .focus-text-input;
-  margin: 12px 0;
   label {
     font-size: 1.15rem;
     font-family: 'Comfortaa', sans-serif;
@@ -967,18 +986,22 @@ footer {
     width: 100%;
     padding: 9px;
     margin-top: 6px;
-    border: 2px solid $light-primary;
+    border: 2px solid $light-secondary;
     border-radius: 3px;
-    background: $light-primary;
+    background: $light-secondary;
     color: $light-font-primary;
     @media(prefers-color-scheme: dark) {
-      border: 2px solid $dark-primary;
-      background: $dark-primary;
+      border: 2px solid $dark-secondary;
+      background: $dark-secondary;
       color: $dark-font-primary;
     }
   }
 }
 
 .session-links {
-  margin-top: 9px;
+  list-style: none;
+  padding: 0;
+  li {
+    margin: 9px 0;
+  }
 }
