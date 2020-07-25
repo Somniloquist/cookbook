@@ -20,6 +20,7 @@ $dingley: #627E4E;
 $astral: #377CA4;
 $sea-green: #2a8454;
 $pesto: #907237;
+$google-blue: #4285f4;
 
 $image-thumbnail-size: 90px;
 $image-medium-size: 231px;
@@ -929,6 +930,28 @@ footer {
   color: $dark-font-primary;
   border: 2px solid $orange-primary;
   background: $orange-primary;
+}
+
+.btn-google {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $google-blue;
+  border: 1px solid $google-blue;
+  padding: 0;
+  text-transform: capitalize;
+  width: 100%;
+  height: 37.6333px;
+  margin-bottom: 16px;
+  color: $dark-font-primary;
+  &:before {
+    content: '';
+    background-image: url(btn_google_dark_normal_ios.svg);
+    background-size: 36px 36px;
+    height: 36px;
+    width: 36px;
+    margin-right: 8px;
+  }
 }
 
 // FLASH
