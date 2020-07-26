@@ -200,10 +200,13 @@ h1 {
 
 .mobile-nav-links {
   list-style-type: none;
+  margin: 24px;
+  padding: 0;
   li {
     padding: 12px 0;
     font-weight: 600;
     text-transform: uppercase;
+    white-space: nowrap;
     a {
       color: $light-font-secondary;
       text-decoration: none;
@@ -269,6 +272,14 @@ h1 {
   box-shadow: 5px 0 25px rgba(0,0,0,0.25);
   @media(prefers-color-scheme: dark) {
     background: $dark-secondary;
+  }
+  .divider {
+    background: $light-primary;
+    height: 1px;
+    margin: 12px 0;
+    @media(prefers-color-scheme: dark) {
+      background: $dark-primary;
+    }
   }
 }
 
