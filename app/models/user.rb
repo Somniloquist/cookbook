@@ -13,7 +13,6 @@ class User < ApplicationRecord
       existing_user.update_attributes(provider: auth.provider, uid: auth.uid) if existing_user.provider.nil? && existing_user.uid.nil?
     end
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-      byebug
       user.email = auth.info.email
       user.password = Devise.friendly_token[0, 20]
       user.username = auth.info.first_name
