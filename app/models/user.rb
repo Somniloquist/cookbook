@@ -8,7 +8,12 @@ class User < ApplicationRecord
                         length: {minimum: 4, maximum: 25}
 
   def self.from_omniauth(auth)
+    # find user and add provider/uid if it already exists but has not been linked
+    if existing_user = find_by(email: auth.info.email)
+      existing_user.update_attributes(provider: auth.provider, uid: auth.uid) if existing_user.provider.nil? && existing_user.uid.nil?
+    end
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+      byebug
       user.email = auth.info.email
       user.password = Devise.friendly_token[0, 20]
       user.username = auth.info.first_name
