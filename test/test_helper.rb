@@ -4,6 +4,7 @@ require 'rails/test_help'
 Minitest::Reporters.use!
 
 class ActiveSupport::TestCase
+  include Devise::Test::IntegrationHelpers
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
   fixtures :all
 

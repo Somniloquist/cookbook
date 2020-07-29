@@ -9,3 +9,9 @@ artoria:
   username: king_of_britain
   encrypted_password: bestdad12345
   created_at: <%= Time.now %>
+
+astolfo:
+  email: yahoo@example.com
+  username: trap_of_argalia
+  encrypted_password: qwerty1234
+  created_at: <%= Time.now %>

@@ -21,6 +21,7 @@ $astral: #377CA4;
 $sea-green: #2a8454;
 $pesto: #907237;
 $google-blue: #4285f4;
+$red: #f44336;
 
 $image-thumbnail-size: 90px;
 $image-medium-size: 231px;
@@ -925,6 +926,8 @@ footer {
   border-radius: 3px;
   color: $light-font-primary;
   text-decoration: none;
+  background: transparent;
+  border: none;
   @media(prefers-color-scheme: dark) {
     color: $dark-font-primary;
   }
@@ -941,6 +944,12 @@ footer {
   color: $dark-font-primary;
   border: 2px solid $orange-primary;
   background: $orange-primary;
+}
+
+.btn-danger {
+  color: $dark-font-primary;
+  border: 2px solid $red;
+  background: $red;
 }
 
 .btn-google {
