@@ -9,16 +9,10 @@ one:
   cheap: false
   veryPopular: true
   sustainable: false
-  weightWatcherSmartPoints: 15
-  gaps: 'no'
-  lowFodmap: false
   preparationMinutes: 15
   cookingMinutes: 0
   sourceUrl: 	http://naturallyella.com/cabbage-salad-with-peanuts/
-  spoonacularSourceUrl: https://spoonacular.com/cabbage-salad-with-peanuts-723984
   aggregateLikes: 411
-  spoonacularScore: 100
-  healthScore: 93
   creditsText: Naturally Ella
   sourceName: Naturally Ella
   pricePerServing: 115.09

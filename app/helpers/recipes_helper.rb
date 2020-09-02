@@ -32,6 +32,10 @@ module RecipesHelper
     JSON.parse response.body
   end
 
+  def trim_response(response)
+    response.slice("id", "vegetarian", "vegan", "glutenFree", "dairyFree", "veryHealthy", "cheap", "sustainable", "veryPopular", "sourceUrl", "aggregateLikes", "creditsText", "license", "sourceName", "pricePerServing", "title", "readyInMinutes", "servings", "image", "imageType", "cuisines", "dishTypes", "diets", "occasions", "winePairing", "instructions", "preparationMinutes", "cookingMinutes", "summary", "analyzedInstructions", "extendedIngredients", "nutrition")
+  end
+
   private
   def spoonacular_key
     Rails.application.credentials.spoonacular[:api_key]

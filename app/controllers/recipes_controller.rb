@@ -15,9 +15,14 @@ class RecipesController < ApplicationController
     else
       # retrieve the recipe from the api
       # then save the recipe to the database to help reduce api calls in the future
-      response = recipe_info_for(params[:id]).to_json
-      @recipe = Recipe.new
-      @recipe.from_json(response).save
+      response = recipe_info_for(params[:id])
+      if response["code"] == 404
+        redirect_to root_path
+      else
+        @recipe = Recipe.new
+        @recipe.from_json(trim_response(response).to_json).save
+      end
+     
     end
 
     @nutrition = @recipe.nutrition["nutrients"]

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_24_093009) do
+ActiveRecord::Schema.define(version: 2020_09_01_184404) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,15 +25,11 @@ ActiveRecord::Schema.define(version: 2020_07_24_093009) do
     t.boolean "sustainable"
     t.boolean "veryPopular"
     t.string "sourceUrl"
-    t.string "spoonacularSourceUrl"
     t.integer "aggregateLikes"
-    t.integer "spoonacularScore"
-    t.integer "healthScore"
     t.string "creditsText"
     t.string "license"
     t.string "sourceName"
     t.decimal "pricePerServing"
-    t.integer "spoonacularId"
     t.string "title"
     t.integer "readyInMinutes"
     t.integer "servings"
@@ -45,9 +41,6 @@ ActiveRecord::Schema.define(version: 2020_07_24_093009) do
     t.string "occasions"
     t.string "winePairing"
     t.string "instructions"
-    t.integer "weightWatcherSmartPoints"
-    t.string "gaps"
-    t.boolean "lowFodmap"
     t.integer "preparationMinutes"
     t.integer "cookingMinutes"
     t.string "summary"
@@ -55,7 +48,6 @@ ActiveRecord::Schema.define(version: 2020_07_24_093009) do
     t.json "extendedIngredients", default: {}
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "originalId"
     t.json "nutrition", default: {}
     t.index ["id"], name: "index_recipes_on_id"
   end
