@@ -11,4 +11,10 @@ class RecipesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test "should raise routing error" do
+    assert_raises(ActionController::RoutingError) do
+      get recipe_path("invalid")
+    end
+  end
+
 end

@@ -16,8 +16,7 @@ class RecipesController < ApplicationController
       # retrieve the recipe from the api
       # then save the recipe to the database to help reduce api calls in the future
       response = recipe_info_for(params[:id])
-      raise ActiveRecord::RecordNotFound.new("Recipe not Found") if response["code"] == 404
-
+      render_not_found if response["code"] == 404 || response["status"] == 404
       @recipe = Recipe.new
       @recipe.from_json(trim_response(response).to_json).save
     end
