@@ -6,6 +6,7 @@ class User < ApplicationRecord
          :omniauthable, omniauth_providers: %i[google_oauth2]
   validates :username,  presence: true,
                         length: {minimum: 4, maximum: 25}
+  has_many :favorites
 
   def self.from_omniauth(auth)
     # find user and add provider/uid if it already exists but has not been linked
