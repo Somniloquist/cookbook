@@ -7,6 +7,7 @@ class User < ApplicationRecord
   validates :username,  presence: true,
                         length: {minimum: 4, maximum: 25}
   has_many :favorites
+  has_many :favorite_recipes, through: :favorites, source: :recipe
 
   def self.from_omniauth(auth)
     # find user and add provider/uid if it already exists but has not been linked

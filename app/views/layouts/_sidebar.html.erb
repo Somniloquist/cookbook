@@ -6,9 +6,10 @@
     <ul class="mobile-nav-links"> 
       <li><%=link_to "home", root_path %></li>
       <% if user_signed_in? %>
-        <div class="divider"></div>
         <li><%= link_to "Profile", user_path(current_user) %></li>
+        <li><%= link_to "Favorites", favorites_path %></li>
         <li><%= link_to "Account settings", edit_user_registration_path(current_user) %></li>
+        <div class="divider"></div>
         <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
       <% end %>
     </ul>
