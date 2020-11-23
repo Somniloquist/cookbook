@@ -1,5 +1,6 @@
 <article>
   <div id="recipe-image-container-mobile">
+    <%= render "shared/favorite_icon_outline" %>
     <%= image_for @recipe.id, :source unless @recipe.image.nil? %>
   </div>
   <div id="recipe-content" class="container">
@@ -51,6 +52,7 @@
       </div>
 
       <div id="recipe-image-container-desktop"> 
+        <%= render "shared/favorite_icon_outline" %>
         <%= image_for @recipe.id, :source unless @recipe.image.nil? %>
       </div>
     </header>

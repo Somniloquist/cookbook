@@ -2,6 +2,7 @@
     <div class="recipe-grid">
       <% @recipes.each do |recipe| %>
         <div class="recipe-card">
+          <%= render "shared/favorite_icon_outline" %>
           <%= link_to recipe_path(recipe["id"]) do %>
             <div class="recipe-card-image">
               <%= image_for(recipe["id"], :medium) unless recipe["image"].nil? %>

@@ -450,6 +450,7 @@ h1 {
   }
 }
 .recipe-card {
+  position: relative;
   display: flex;
   height: $image-thumbnail-size;
   background: $light-primary;
@@ -549,6 +550,20 @@ h1 {
   }
 }
 
+.favorite {
+  position: absolute;
+  left: 64px;
+  bottom: 2px;
+  fill: white;
+  cursor: pointer;
+  @media(min-width: $breakpoint-md) {
+    left: auto;
+    right: 10px;
+    bottom: 95px;
+    transform: scale(1.33)
+  }
+}
+
 // recipe show page
 article {
   margin-top: -24px;
@@ -610,6 +625,7 @@ article {
 }
 
 #recipe-image-container-mobile {
+  position: relative;
   height: 50vh;
   max-height: 450px;
   // fallback incase the recipe has no image
@@ -623,9 +639,18 @@ article {
   @media(min-width: $breakpoint-lg) {
     display: none;
   }
+
+  .favorite {
+    left: auto;
+    bottom: 50px;
+    right: 38px;
+    transform: scale(1.33);
+    z-index: 1;
+  }
 }
 
 #recipe-image-container-desktop {
+  position: relative;
   display: none;
   border-radius: 10px;
   background-color: $romantic;
@@ -639,6 +664,13 @@ article {
   @media(min-width: $breakpoint-lg) {
     // fallback incase the recipe has no image
     display: block;
+  }
+  .favorite {
+    left: auto;
+    bottom: 25px;
+    right: 25px;
+    transform: scale(1.33);
+    z-index: 1;
   }
 }
 
