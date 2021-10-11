@@ -1,0 +1,6 @@
+
+<% if current_user.favorited?(recipe) %>
+  <%= render "shared/favorite_icon_filled" %>
+<% else %>
+  <%= render "shared/favorite_icon_outline" %>
+<% end %>

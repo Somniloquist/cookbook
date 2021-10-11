@@ -13,6 +13,8 @@
           </span>
         </div>
 
+        <%= render partial: "favorites/form", locals: { :recipe => @recipe } %>
+
         <div class="recipe-meta">
           <div class="info-bar">
             <div class="info-bar-item">
@@ -52,7 +54,6 @@
       </div>
 
       <div id="recipe-image-container-desktop"> 
-        <%= render "shared/favorite_icon_outline" %>
         <%= image_for @recipe.id, :source unless @recipe.image.nil? %>
       </div>
     </header>

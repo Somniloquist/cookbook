@@ -543,7 +543,6 @@ h1 {
   }
   svg {
     fill: $dark-font-secondary;
-    transform: scale(0.76)
   }
   @media(min-width: $breakpoint-md) {
     padding: 6px;
@@ -551,16 +550,15 @@ h1 {
 }
 
 .favorite {
-  position: absolute;
-  left: 64px;
-  bottom: 2px;
   fill: white;
   cursor: pointer;
   @media(min-width: $breakpoint-md) {
     left: auto;
     right: 10px;
     bottom: 95px;
-    transform: scale(1.33)
+  }
+  &:hover {
+    transform: scale(1.1);
   }
 }
 
@@ -710,6 +708,9 @@ article {
 }
 .info-bar {
   font-family: "comfortaa", sans-serif;
+}
+.diets {
+  margin: 15px 0;
 }
 .info-bar, .diets{
   display: flex;

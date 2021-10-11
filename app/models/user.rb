@@ -9,6 +9,10 @@ class User < ApplicationRecord
   has_many :favorites
   has_many :favorite_recipes, through: :favorites, source: :recipe
 
+  def favorited?(recipe) 
+    favorites.find_by(recipe_id: recipe["id"]) ? true : false
+  end
+
   def self.from_omniauth(auth)
     # find user and add provider/uid if it already exists but has not been linked
     if existing_user = find_by(email: auth.info.email)
